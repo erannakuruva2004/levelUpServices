@@ -32,9 +32,7 @@ class SignUp extends UserDetails{
         super(name,email,phno,password);
     }
     public static void main(String[] args){
-        // System.out.println("\u001B[32m**********************************************************\u001B[0m");
-        // System.out.println("\u001B[1;35m             Welcome to LevelUP Services                \u001B[0m");
-        // System.out.println("\u001B[32m**********************************************************\u001B[0m");
+       ;
         System.out.print("\u001B[34mEnter your UserName: \u001B[0m");
         String name = sc.nextLine();
         
@@ -42,7 +40,7 @@ class SignUp extends UserDetails{
         while(true){
             System.out.print("\u001B[34mEnter your Email id: \u001B[0m");
             email = sc.nextLine();
-            // Email Validation
+           
             if(email.matches("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$")){
                 break;
             } else {
@@ -54,7 +52,6 @@ class SignUp extends UserDetails{
         while(true){
             System.out.print("\u001B[34mEnter your Password: \u001B[0m");
             password = sc.nextLine();
-            // Password Validation
             if(password.length() >= 6 && password.matches(".*[^a-zA-Z0-9].*")){
                 break;
             } else {
@@ -69,7 +66,7 @@ class SignUp extends UserDetails{
             try {
                 phno = Long.parseLong(sc.nextLine());
                 if (checkPhonProcess(phno)) {
-                    break; // valid number
+                    break;
                 } else {
                     System.out.print("\u001B[33mEnter 1 to continue else 0 to exit\n\u001B[0m");
                     int n = Integer.parseInt(sc.nextLine());
@@ -383,7 +380,6 @@ public class MainPage{
         System.out.print("\u001B[35m\t\t\t\tThank you! HAVE A NICE DAY\n\u001B[0m");
     }
 }
-//RealEsate Code
 
 class Plot {
     int id, size, areaCode, featureCode;
@@ -414,7 +410,7 @@ class Plot {
     }
 
     String getFeatures(String type) {
-        String features = "Unknown Features"; // Default value
+        String features = "Unknown Features";
 
         switch (type) {
             case "Plot":
@@ -585,7 +581,6 @@ class RealEstate {
                     if (act == 1) {
                         Banking2.processPayment(plot.getPrice());
                     } else if (act == 2) {
-                        // Just continue the loop, effectively returning to the main menu choice
                         break; 
                     } else {
                         System.out.println("\u001B[32mThank you for visiting!\u001B[0m");
@@ -605,7 +600,6 @@ class RealEstate {
         }
     }
 }
-//Banking Code:
 
 
 interface PaymentMethod {
@@ -890,22 +884,18 @@ class RealEstatePayment {
         System.out.print("Enter your current account balance: \u20B9");
         userBalance = sc.nextDouble();
 
-        // System.out.print("Your property price: \u20B9"+amount);
         double price = amount;
-        // sc.nextLine();
 
         System.out.println("You chose a property worth \u20B9" + price);
 
         new Banking().processPayment(price);
 
-        // System.out.println("\u001B[35mThank you for using Level Up Real Estate!\u001B[0m");
     }
 }
 
 
 
 
-//ElectronicGadgets
 
 class ElectronicGadgets
 {
@@ -1282,7 +1272,6 @@ class ElectronicGadgets
          {
              System.out.println(RED + "Invalid option. Please choose between 1-4." + RESET);
          }
-         //Ask user to continue or go to Billing
          if (continueShopping) 
          {
              System.out.print(WHITE + "\nDo you want to select another item? (y/n): " + RESET);
@@ -1299,7 +1288,6 @@ class ElectronicGadgets
      if(num==1)
      totalPrice = DiscountGames.Main(totalPrice);
 
-     // Billing Section
      if (!billDetails.equals("")) 
  {
      System.out.println(YELLOW + "\n======== BILLING DETAILS ========" + RESET);
@@ -1308,7 +1296,6 @@ class ElectronicGadgets
      System.out.println(GREEN + "      Total Amount: Rs." + totalPrice + "/-" + RESET);
      System.out.println(YELLOW + "=================================" + RESET);
 
-     // ✅ Payment Method Prompt
      System.out.println(WHITE + "\nChoose your payment method:" + RESET);
      System.out.println(GREEN + "1. EMI");
      System.out.println(GREEN + "2. Credit");
@@ -1349,12 +1336,10 @@ class ElectronicGadgets
  }
    } 
 }
-//Discount DiscountGamess
 
 class DiscountGames{
     static Scanner sc = new Scanner(System.in);
 
-    // ANSI Colors
     static String reset = "\u001B[0m";
     static String bold = "\u001B[1m";
     static String red = "\u001B[91m";
@@ -1364,7 +1349,7 @@ class DiscountGames{
     static String cyan = "\u001B[36m";
     static String magenta = "\u001B[95m";
 
-    // Helper method to simulate String.repeat(int) for older Java versions
+
     private static String repeatString(String str, int count) {
         if (count <= 0) {
             return "";
@@ -1381,9 +1366,9 @@ class DiscountGames{
         int[] possibleDiscounts = {0, 5, 10, 15};
         int maxDiscount = 0;
 
-        System.out.println(cyan + repeatString("==", 38)); // RECTIFIED
+        System.out.println(cyan + repeatString("==", 38));
         System.out.println(bold + yellow + "          🎡 SPIN THE WHEEL - Win Your Discount (3 Chances) 🎯         " + reset);
-        System.out.println(cyan + repeatString("==", 38) + reset); // RECTIFIED
+        System.out.println(cyan + repeatString("==", 38) + reset);
         System.out.println(blue + "You have 3 chances to spin. The highest discount will be applied." + reset);
         sc.nextLine();
 
@@ -1406,22 +1391,22 @@ class DiscountGames{
         double discountAmount = (maxDiscount / 100.0) * price;
         double finalPrice = price - discountAmount;
 
-        System.out.println(cyan + "\n" + repeatString("==", 25)); // RECTIFIED
+        System.out.println(cyan + "\n" + repeatString("==", 25));
         System.out.println(magenta + bold + "🧾 BILLING SUMMARY");
-        System.out.println(repeatString("==", 25) + reset); // RECTIFIED
+        System.out.println(repeatString("==", 25) + reset);
         System.out.printf("💸 %sOriginal Price      : ₹%.2f%s%n", yellow, price, reset);
         System.out.printf("🎁 %sDiscount Applied    : %d%%%s%n", yellow, maxDiscount, reset);
         System.out.printf("💰 %sDiscount Amount     : ₹%.2f%s%n", yellow, discountAmount, reset);
         System.out.printf("✅ %sFinal Price         : ₹%.2f%s%n", yellow, finalPrice, reset);
-        System.out.println(cyan + repeatString("==", 25) + reset); // RECTIFIED
+        System.out.println(cyan + repeatString("==", 25) + reset);
         
         return finalPrice;
     }
 
     static double guessTheGadget(double totalPrice) {
-        System.out.println(cyan + repeatString("==", 38)); // RECTIFIED
+        System.out.println(cyan + repeatString("==", 38));
         System.out.println(bold + yellow + "          🤖 GUESS THE GADGET - Win Up To 15% Discount! 🧠          ");
-        System.out.println(cyan + repeatString("==", 38) + reset); // RECTIFIED
+        System.out.println(cyan + repeatString("==", 38) + reset);
         System.out.println(blue + "Answer 3 gadget-related questions correctly to win a discount!" + reset);
         sc.nextLine();
 
@@ -1480,26 +1465,26 @@ class DiscountGames{
         double discount = (discountpercent / 100.0) * price;
         double finalPrice = price - discount;
 
-        System.out.println(cyan + "\n" + repeatString("==", 25) + reset); // RECTIFIED
+        System.out.println(cyan + "\n" + repeatString("==", 25) + reset);
         System.out.println(magenta + bold + "🧾 BILLING SUMMARY" + reset);
-        System.out.println(reset + repeatString("==", 25) + reset); // RECTIFIED
+        System.out.println(reset + repeatString("==", 25) + reset);
         System.out.printf("💸 %sOriginal Price      : ₹%.2f%s%n", yellow, price, reset);
         System.out.printf("🎁 %sDiscount Applied    : %d%%%s%n", yellow, discountpercent, reset);
         System.out.printf("💰 %sDiscount Amount     : ₹%.2f%s%n", yellow, discount, reset);
         System.out.printf("✅ %sFinal Price         : ₹%.2f%s%n", yellow, finalPrice, reset);
-        System.out.println(cyan + repeatString("==", 25) + reset); // RECTIFIED
+        System.out.println(cyan + repeatString("==", 25) + reset);
         System.out.println("Re-directing to Payment System..");
         return finalPrice;
     }
 
       static double Main(double totalPrice) {
-          sc = new Scanner(System.in); // Ensure scanner is ready for input
+          sc = new Scanner(System.in); 
           double amount=0;
         while (true) {
             
-            System.out.println(cyan + repeatString("==", 30) + reset); // RECTIFIED
+            System.out.println(cyan + repeatString("==", 30) + reset); 
             System.out.println(bold + yellow + "      🎮 WELCOME TO THE DISCOUNT GAME ZONE        " + reset);
-            System.out.println(cyan + repeatString("==", 30) + "\n"); // RECTIFIED
+            System.out.println(cyan + repeatString("==", 30) + "\n"); 
 
             System.out.println(cyan + bold + "📍 Choose a Game to Play:\n" + reset);
             System.out.println(yellow + "    1️⃣  Spin the Wheel 🎡");
@@ -1507,10 +1492,10 @@ class DiscountGames{
 
             System.out.print(blue + "👉  Enter your choice (1 or 2): " + reset);
             
-            // Input validation for int
+    
             if (sc.hasNextInt()) {
                 int choice = sc.nextInt();
-                sc.nextLine(); // Consume newline
+                sc.nextLine(); 
                 if (choice == 1) {
                    amount= wheel(totalPrice);
                     break;
@@ -1522,7 +1507,7 @@ class DiscountGames{
                 }
             } else {
                 System.out.println(red + "\n❌ Invalid input! Please enter a number (1 or 2).\n" + reset);
-                sc.nextLine(); // Consume invalid input
+                sc.nextLine(); 
             }
         }
         
@@ -1536,15 +1521,11 @@ class SimpleProgress {
         int[] percentages = {10, 15, 0, 5,10, 15, 0, 5};
         boolean[] stopFlag = {false};
 
-        // Thread to detect Enter key
         Thread inputThread = new Thread(() -> {
             try {
-                // BufferedReader is good for this, but Scanner.nextLine() might be simpler 
-                // if we ensure it's not the main scanner being used.
-                // Since this uses System.in, we need to be careful, but we'll stick to 
-                // the existing mechanism as it's designed to read a single line (Enter key).
+                
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                br.readLine(); // waits for Enter
+                br.readLine(); 
                 stopFlag[0] = true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1565,7 +1546,7 @@ class SimpleProgress {
                 try {
                     Thread.sleep(90);
                 } catch (InterruptedException e) {
-                    // ignore
+                    e.printStackTrace();
                 }
             }
         }
@@ -1577,13 +1558,12 @@ class SimpleProgress {
 
 
 
-//Banner
 class Banner {
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String[] COLORS = {
-        "\u001B[38;5;187m", // Pastel Pink
-        "\u001B[38;5;159m"  // Baby Blue
+        "\u001B[38;5;187m", // pink color
+        "\u001B[38;5;159m"  // Blue color
     };
 
     private static final String[] WELCOME_TO_ART = {
@@ -1650,10 +1630,8 @@ class Home
         int n = Integer.parseInt(sc.nextLine());
         if(n==1)
             RealEstate.main(null);
-            // System.out.print("real");
         else if(n==2)
             ElectronicGadgets.main(null);
-            // System.out.print("gadget");
         else if(n==3)
             System.out.print("\u001B[35mThank you!");
         else{
